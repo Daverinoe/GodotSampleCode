@@ -1,0 +1,6 @@
+res://Scenes/character.tscn
+res://Scenes/environment.tscn
+res://Scenes/main.tscn
+res://Scripts/character.gd
+res://Shaders/character.gdshader
+res://default_env.tres
