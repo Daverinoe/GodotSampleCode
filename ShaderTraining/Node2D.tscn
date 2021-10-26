@@ -6,33 +6,33 @@
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0.206897, 0 ), 0.0, -0.577972, 0, 0, Vector2( 0.436782, 0.272727 ), 4.21818, 4.21818, 0, 0, Vector2( 0.5, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.563218, 0.263636 ), -3.06477, -3.06477, 0, 0, Vector2( 0.821839, 0.00681818 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="OpenSimplexNoise" id=13]
+[sub_resource type="OpenSimplexNoise" id=4]
 seed = 6
 octaves = 1
 period = 0.1
 
-[sub_resource type="NoiseTexture" id=11]
+[sub_resource type="NoiseTexture" id=5]
 seamless = true
 as_normalmap = true
 bump_strength = 32.0
-noise = SubResource( 13 )
+noise = SubResource( 4 )
 
-[sub_resource type="ViewportTexture" id=12]
+[sub_resource type="ViewportTexture" id=6]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=7]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
-shader_param/screenTex = SubResource( 12 )
-shader_param/normalMap = SubResource( 11 )
+shader_param/screenTex = SubResource( 6 )
+shader_param/normalMap = SubResource( 5 )
 
-[sub_resource type="ViewportTexture" id=9]
+[sub_resource type="ViewportTexture" id=8]
 viewport_path = NodePath("Viewport")
 
 [node name="Node2D" type="TextureRect"]
@@ -48,15 +48,16 @@ __meta__ = {
 size = Vector2( 1024, 600 )
 
 [node name="Light2D" type="Light2D" parent="Viewport"]
+visible = false
 position = Vector2( 487.039, 302.04 )
 scale = Vector2( 1, 601.304 )
-texture = SubResource( 6 )
+texture = SubResource( 3 )
 shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="Light2D2" type="Light2D" parent="Viewport"]
 position = Vector2( 487.039, 302.04 )
 scale = Vector2( 1, 601.304 )
-texture = SubResource( 6 )
+texture = SubResource( 3 )
 range_height = 600.0
 range_item_cull_mask = 2
 shadow_color = Color( 0, 0, 0, 1 )
@@ -72,7 +73,7 @@ flip_v = true
 
 [node name="Sprite" type="Sprite" parent="Viewport"]
 light_mask = 2
-material = SubResource( 10 )
+material = SubResource( 7 )
 position = Vector2( 500, 300 )
-texture = SubResource( 9 )
+texture = SubResource( 8 )
 flip_v = true
