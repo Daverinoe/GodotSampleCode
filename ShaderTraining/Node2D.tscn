@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+
+void fragment(){
+	vec2 perspectiveCorrection = vec2(2.0 * (0.5 - UV.x) * (0.3 - UV.y), 0.0);
+	vec2 point = UV;
+	if (point.y < 0.3) {
+		point.y = 0.6 - point.y;
+		point.x += TIME * 0.05;
+		point.x = mod(point.x, 1.0);
+		point = point + perspectiveCorrection;
+	}
+	COLOR = texture(TEXTURE, point);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 512.769, 301.659 )
+scale = Vector2( 15.9385, 9.2898 )
+texture = ExtResource( 1 )
+flip_v = true
