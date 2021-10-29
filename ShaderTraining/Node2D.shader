@@ -10,7 +10,7 @@ void fragment(){
 	if (point.y > 0.7) {
 		// Main reflection
 		point.y = 1.4 - point.y;
-		point.x = mod(point.x - 0.012, 1.0);
+		point.x = mod(point.x, 1.0);
 		
 		// Normals
 		vec2 perspectiveCorrection = vec2(2.0 * (0.5 - UV.x) * (UV.y - 0.7), 0.0);
